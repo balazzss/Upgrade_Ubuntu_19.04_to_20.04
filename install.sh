@@ -32,10 +32,13 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
         sudo apt update  && sudo apt upgrade -y && sudo apt dist-upgrade -y
         sudo apt autoremove -y
         sudo apt install update-manager-core -y
-        whiptail --title "Version" --msgbox "Installation is completed" 8 78
         version=$(lsb_release -sr)
         whiptail --title "Version" --msgbox "Your curent Ubuntu version is $version" 8 78
-
+        if (whiptail --title "Reboot" --yesno "Would you like to reboot now ? " 8 78); then
+                sudo reboot now
+        else 
+                whiptail --title "Reboot" --msgbox "Please don't forget to reboot your computer as soon as possible :) " 8 78
+        fi
 else
         whiptail --title "Exit" --msgbox "You exited the programm." 8 78
         exit
