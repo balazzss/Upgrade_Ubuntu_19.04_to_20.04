@@ -16,7 +16,7 @@ run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
 
         while ! [ "$username" = "$USER" ]; do
-             username=$(whiptail --nocancel --msgbox "Type de correct username.\\n\\nEnter the username." 10 60 3>&1 1>&2 2>&3 3>&1)
+             username=$(whiptail --nocancel --inputbox "Type de correct username.\\n\\nEnter the username." 10 60 3>&1 1>&2 2>&3 3>&1)
         done
         exitstatus=$?
         
