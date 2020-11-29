@@ -27,7 +27,7 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
         wget http://archive.ubuntu.com/ubuntu/dists/eoan-updates/main/dist-upgrader-all/current/eoan.tar.gz
         tar -xvzf  eoan.tar.gz
 
-        sudo /home/$USERNAME/eoan_upgrade/eoan --frontend=DistUpgradeViewText
+        sudo /home/$USER/eoan_upgrade/eoan --frontend=DistUpgradeViewText
         
         sudo apt update  && sudo apt upgrade -y && sudo apt dist-upgrade -y
         sudo apt autoremove -y
