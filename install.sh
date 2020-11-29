@@ -32,6 +32,9 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
         sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
         sudo apt autoremove
         sudo apt install update-manager-core
+        whiptail --title "Version" --msgbox "Installation is completed" 8 78
+        version=$(lsb_release -sr)
+        whiptail --title "Version" --msgbox "Your curent Ubuntu version is $version" 8 78
 
 else
         whiptail --title "Exit" --msgbox "You exited the programm." 8 78
