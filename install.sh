@@ -3,10 +3,10 @@
 #check ubuntu version
 check_version () {
 version=$(lsb_release -sr)
-if [ $version = 18.04 ]; then
+if [ $version = 19.04 ]; then
         whiptail --title "Version" --msgbox "Your curent Ubuntu version is $version" 8 78
 else
-        whiptail --title "Upgrade" --msgbox "Your curent Ubuntu version is $version, This programm is for Ubuntu 18.04 only" 8 78
+        whiptail --title "Upgrade" --msgbox "Your curent Ubuntu version is $version, This programm is for Ubuntu 19.04 only" 8 78
         exit
 fi
 }
@@ -14,7 +14,7 @@ fi
 #Install Ubuntu 20.04 LTS
 run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
-        whiptail --title "Upgrade" --msgbox "Upgrading Ubuntu 18.04 to 20.04" 8 78
+        whiptail --title "Upgrade" --msgbox "Upgrading Ubuntu 19.04 to 20.04" 8 78
         
         sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
