@@ -1,6 +1,7 @@
 #!/bin/sh
-check_version () {
+
 #check ubuntu version
+check_version () {
 version=$(lsb_release -sr)
 if [ $version = 18.04 ]; then
         whiptail --title "Version" --msgbox "Your curent Ubuntu version is $version" 8 78
@@ -10,6 +11,7 @@ else
 fi
 }
 
+#Install Ubuntu 20.04 LTS
 run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
         whiptail --title "Upgrade" --msgbox "Upgrading Ubuntu 18.04 to 20.04" 8 78
