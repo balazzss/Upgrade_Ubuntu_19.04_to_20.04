@@ -15,6 +15,6 @@ Make it executable
       sudo chmod +x install.sh
       sudo chown $USER:$USER install.sh
 
-Run the installation programm
+Run the installation programm without sudo!!
       
-      sudo ./install.sh
+      ./install.sh
