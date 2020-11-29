@@ -13,7 +13,7 @@ First download the programm:
 Make it executable
       
       sudo chmod +x install.sh
-      chown $USER:$USER install.sh
+      sudo chown $USER:$USER install.sh
 
 Run the installation programm
       
