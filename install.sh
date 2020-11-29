@@ -18,7 +18,7 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
         
         sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
-        sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
+        sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y
 
         mkdir eoan_upgrade
  
@@ -29,9 +29,9 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
 
         sudo /home/$USERNAME/eoan_upgrade/eoan --frontend=DistUpgradeViewText
         
-        sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
-        sudo apt autoremove
-        sudo apt install update-manager-core
+        sudo apt update  && sudo apt upgrade -y && sudo apt dist-upgrade -y
+        sudo apt autoremove -y
+        sudo apt install update-manager-core -y
         whiptail --title "Version" --msgbox "Installation is completed" 8 78
         version=$(lsb_release -sr)
         whiptail --title "Version" --msgbox "Your curent Ubuntu version is $version" 8 78
