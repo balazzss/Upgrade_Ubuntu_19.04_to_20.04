@@ -14,6 +14,14 @@ fi
 #Install Ubuntu 20.04 LTS
 run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
+        username=$(whiptail --nocancel --inputbox "Username" 8 78 Name --title "Please enter the username of this session" 3>&1 1>&2 2>&3)
+        
+        while ! [ "$username" = "$USER" ]; do
+             unset pass2
+             username=$(whiptail --nocancel --passwordbox "Type de correct username.\\n\\nEnter the username again." 10 60 3>&1 1>&2 2>&3 3>&1)
+        done
+        exitstatus=$?
+        
         echo ":::::: Uprgrading Ubuntu now ::::::"
         sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
@@ -26,7 +34,7 @@ if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade t
         wget http://archive.ubuntu.com/ubuntu/dists/eoan-updates/main/dist-upgrader-all/current/eoan.tar.gz
         tar -xvzf  eoan.tar.gz
 
-        sudo /home/$USER/eoan_upgrade/eoan --frontend=DistUpgradeViewText
+        sudo /home/$username/eoan_upgrade/eoan --frontend=DistUpgradeViewText
         
         sudo apt update  && sudo apt upgrade -y && sudo apt dist-upgrade -y
         sudo apt autoremove -y
