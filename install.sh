@@ -14,8 +14,7 @@ fi
 #Install Ubuntu 20.04 LTS
 run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
-        whiptail --title "Upgrade" --msgbox "Upgrading Ubuntu 19.04 to 20.04" 8 78
-        
+        ::: echo "Uprgrading Ubuntu now"
         sudo sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
         sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get dist-upgrade -y
