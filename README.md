@@ -9,7 +9,11 @@ Run the upgrade programm
 First download the programm: 
 
       sudo wget https://raw.githubusercontent.com/balazzss/Upgrade_Ubuntu_19.04_to_20.04/main/install.sh
+
+Make it executable
       
       sudo chmod +x install.sh
+
+Run the installation programm
       
       sudo ./install.sh
