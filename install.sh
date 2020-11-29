@@ -14,10 +14,8 @@ fi
 #Install Ubuntu 20.04 LTS
 run_installation () {
 if (whiptail --title "Upgrade to Ubuntu 20.04" --yesno "Do you want to upgrade to Ubuntu 20.04" 8 78); then
-        username=$(whiptail --nocancel --inputbox "Username" 8 78 Name --title "Please enter the username of this session" 3>&1 1>&2 2>&3)
-        
+
         while ! [ "$username" = "$USER" ]; do
-             unset pass2
              username=$(whiptail --nocancel --passwordbox "Type de correct username.\\n\\nEnter the username again." 10 60 3>&1 1>&2 2>&3 3>&1)
         done
         exitstatus=$?
